@@ -1,7 +1,7 @@
 # PrincetonAlgorithm
 
 ### Algorithm 1
-- [ ] proj0 Hello,world
+- [x] proj0 Hello,world
 - [ ] proj1 Percolation
 - [ ] proj2 Deques and Randomized Queues
 - [ ] proj3 Collinear Points
@@ -14,3 +14,5 @@
 - [ ] proj8 Baseball Elimination
 - [ ] proj9 Boggle
 - [ ] proj10 Burrows Wheeler
+
+### project1 Percolation
