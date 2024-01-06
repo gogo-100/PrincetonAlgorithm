@@ -2,39 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeInsightSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/lift.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/externalDependencies.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/file.template.settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/fileTemplates/includes/File Header.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/fileTemplates/internal/AnnotationType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/fileTemplates/internal/Class.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/fileTemplates/internal/Enum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/fileTemplates/internal/Interface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/fileTemplates/internal/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/fileTemplates/internal/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/findbugs-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Algorithms__Part_I.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Algorithms__Part_I.xml.old" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/COS_126.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/algs4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/introcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Algorithms, Part I.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Computer Science.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Percolation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PercolationStats.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../algorithm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Percolation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Percolation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PercolationStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/PercolationStats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,10 +89,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.PercolationVisualizer">
+  <component name="RunManager" selected="Application.PercolationStats">
     <configuration name="Percolation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Percolation" />
+      <module name="Algorithms, Part I" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PercolationStats" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PercolationStats" />
       <module name="Algorithms, Part I" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -137,6 +115,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PercolationStats" />
         <item itemvalue="Application.PercolationVisualizer" />
         <item itemvalue="Application.Percolation" />
       </list>
@@ -198,5 +177,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

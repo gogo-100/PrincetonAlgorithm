@@ -1,48 +1,60 @@
+import edu.princeton.cs.algs4.StdRandom;
+import edu.princeton.cs.algs4.StdStats;
+
 public class PercolationStats {
 
-    private int[] randomNumbers;
+    private double[] percs;
+    private int n, t;
     // perform independent trials on an n-by-n grid
     public PercolationStats(int n, int trials) {
-        if (n < 0 || trials < 0){
+        if (n <= 0 || trials <= 0) {
             throw new IllegalArgumentException("constructor n ≤ 0 or trials < 0");
         }
-        for i in
-        uniformDouble()
+        percs = new double[trials];
+        this.n = n;
+        t = trials;
+        for (int i = 0; i < trials; i++) {
+            Percolation perc = new Percolation(n);
+            int cnt = 0;
+            while (!perc.percolates()) {
+                int a = StdRandom.uniformInt(n) + 1;
+                int b = StdRandom.uniformInt(n) + 1;
+                if (!perc.isOpen(a, b)) {
+                    perc.open(a, b);
+                    cnt++;
+                }
+            }
+            percs[i] = cnt * 1.0/n/n;
+        }
     }
 
     // sample mean of percolation threshold
     public double mean() {
-        //todo
-        return 1.00;
+        return StdStats.mean(percs);
     }
 
     // sample standard deviation of percolation threshold
     public double stddev() {
-        //todo
-        return 1.00;
+        return StdStats.stddev(percs);
     }
 
     // low endpoint of 95% confidence interval
     public double confidenceLo() {
-        //todo
-        return 1.00;
+        return mean() - (1.96 * stddev() / Math.sqrt(t));
     }
 
     // high endpoint of 95% confidence interval
-    public double confidenceHi(){
-        //todo
-        return 1.00;
+    public double confidenceHi() {
+        return mean() + (1.96 * stddev() / Math.sqrt(t));
     }
 
     // test client (see below)
-    public static void main(String[] args){
-        int n = 200;
-        int t = 100;
-        PercolationStats p = new PercolationStats(n,t);
-        System.out.println(p.mean());
-        System.out.println(p.stddev());
-        System.out.println(p.confidenceLo());
-        System.out.println(p.confidenceHi());
+    public static void main(String[] args) {
+        // PercolationStats p = new PercolationStats(20, 10);
+        PercolationStats p = new PercolationStats(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+        System.out.printf("mean = %f\n", p.mean());
+        System.out.printf("stddev = %f\n", p.stddev());
+        System.out.printf("95%% confidence interval = [%f, %f]\n", p.confidenceLo(), p.confidenceHi());
     }
 
 }
