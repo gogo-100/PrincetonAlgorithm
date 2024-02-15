@@ -2,7 +2,7 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
     private WeightedQuickUnionUF unionFind;
-    private WeightedQuickUnionUF unionFindWithoutLastLayer;  // for preventing backwash
+    // private WeightedQuickUnionUF unionFindWithoutLastLayer;  // for preventing backwash
     private int n, firstLayer, lastLayer, openCnt = 0;
     private int[] x4neighbor = new int[]{0, 0, 1, -1};
     private int[] y4neighbor = new int[]{1, -1, 0, 0};
@@ -19,7 +19,7 @@ public class Percolation {
         firstLayer = 0;   // virtual layer
         lastLayer = n * n + 1; // virtual layer
         unionFind = new WeightedQuickUnionUF(n * n + 2);
-        unionFindWithoutLastLayer = new WeightedQuickUnionUF(n * n + 2);
+        // unionFindWithoutLastLayer = new WeightedQuickUnionUF(n * n + 2);
         opens = new boolean[n+1][n+1];
     }
 
@@ -38,10 +38,10 @@ public class Percolation {
             openCnt++;
             if (row == 1) {
                 unionFind.union(getIndex(row, col), firstLayer);
-                unionFindWithoutLastLayer.union(getIndex(row, col), firstLayer);
+                // unionFindWithoutLastLayer.union(getIndex(row, col), firstLayer);
             }
             if (row == n) {
-                unionFind.union(getIndex(row, col), lastLayer);
+                // unionFind.union(getIndex(row, col), lastLayer);
             }
         }
     }
@@ -53,7 +53,7 @@ public class Percolation {
             int col2 = col + y4neighbor[i];
             if (checkLegalPosition(row2, col2) && isOpen(row2, col2)) {
                 unionFind.union(getIndex(row, col), getIndex(row2, col2));
-                unionFindWithoutLastLayer.union(getIndex(row, col), getIndex(row2, col2));
+                //unionFindWithoutLastLayer.union(getIndex(row, col), getIndex(row2, col2));
             }
         }
     }
@@ -76,7 +76,8 @@ public class Percolation {
         if (!checkLegalPosition(row, col)) {
             throw new IllegalArgumentException(String.format("row, col is illegal: %d %d", row, col));
         }
-        return unionFindWithoutLastLayer.find(firstLayer) == unionFindWithoutLastLayer.find(getIndex(row, col));
+        //return unionFindWithoutLastLayer.find(firstLayer) == unionFindWithoutLastLayer.find(getIndex(row, col));
+        return unionFind.find(firstLayer) == unionFind.find(getIndex(row, col));
     }
 
     // returns the number of open sites
