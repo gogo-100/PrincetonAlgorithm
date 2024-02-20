@@ -3,8 +3,8 @@ import edu.princeton.cs.algs4.StdIn;
 public class Permutation {
 
     public static void main(String[] args) {
-        //In in = new In("permutation5.txt");
-        //int k = 3;
+        // In in = new In("permutation5.txt");
+        // int k = 3;
         int k = Integer.parseInt(args[0]);
         RandomizedQueue<String> randomizedQueue = new RandomizedQueue<String>();
         while (!StdIn.isEmpty()) {

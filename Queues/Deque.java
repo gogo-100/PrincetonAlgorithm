@@ -3,20 +3,26 @@ import java.util.NoSuchElementException;
 
 public class Deque<Item> implements Iterable<Item> {
 
-    private Node first, last = null;
-
-    private class Node {
-        Item item;
-        Node next;
-
-        public Node(Item i, Node n) {
-            item = i;
-            next = n;
-        }
-    }
+    private Node first, last;
+    private int size;
 
     // construct an empty deque
     public Deque() {
+        first = null;
+        last = null;
+        size = 0;
+    }
+
+    private class Node {
+        Item item;
+        Node pre;
+        Node next;
+
+        public Node(Item i, Node pre, Node next) {
+            item = i;
+            this.next = next;
+            this.pre = pre;
+        }
     }
 
     // is the deque empty?
@@ -26,9 +32,7 @@ public class Deque<Item> implements Iterable<Item> {
 
     // return the number of items on the deque
     public int size() {
-        int cnt = 0;
-        for (Node cur = first; cur.next != null; cur = cur.next, cnt++) ;
-        return cnt;
+        return size;
     }
 
     // add the item to the front
@@ -36,8 +40,12 @@ public class Deque<Item> implements Iterable<Item> {
         if (item == null) {
             throw new IllegalArgumentException();
         }
-        Node newNode = new Node(item, first);
+        Node newNode = new Node(item, null,first);
+        if(first != null){
+            first.pre = newNode;
+        }
         first = newNode;
+        size++;
         if (last == null) {
             last = newNode;
         }
@@ -48,11 +56,13 @@ public class Deque<Item> implements Iterable<Item> {
         if (item == null) {
             throw new IllegalArgumentException();
         }
-        Node newNode = new Node(item, null);
+        Node newNode = new Node(item,last, null);
         if (last != null) {
             last.next = newNode;
         }
+        newNode.pre = last;
         last = newNode;
+        size++;
         if (first == null) {
             first = newNode;
         }
@@ -65,8 +75,12 @@ public class Deque<Item> implements Iterable<Item> {
         }
         Item res = first.item;
         first = first.next;
+        size --;
         if (first == null) {
             last = null;
+        }
+        else{
+            first.pre = null;
         }
         return res;
     }
@@ -77,15 +91,14 @@ public class Deque<Item> implements Iterable<Item> {
             throw new NoSuchElementException();
         }
         Item res = last.item;
-        if (first == last) {
+        last = last.pre;
+        if(last == null){
             first = null;
-            last = null;
-        } else {
-            Node cur = first;
-            for (; cur.next != last; cur = cur.next) ;
-            cur.next = null;
-            last = cur;
         }
+        else{
+            last.next = null;
+        }
+        size --;
         return res;
     }
 
