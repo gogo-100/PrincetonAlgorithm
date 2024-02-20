@@ -2,15 +2,16 @@
 https://www.coursera.org/learn/algorithms-part1
 https://www.coursera.org/learn/algorithms-part2
 
+
 ### Algorithm 1
 - [x] proj0 Hello,world
 - [x] lecture1 union-find
 - [x] lecture2 algorithm analysis
-- [x] proj1 Percolation
+- [x] proj1 Percolation 
 - [ ] proj1 Percolation bonus
 - [x] lecture3 bag, stack, queue
 - [x] lecture4 basic sort
-- [ ] proj2 Deques and Randomized Queues
+- [x] proj2 Deques and Randomized Queues https://coursera.cs.princeton.edu/algs4/assignments/queues/specification.php
 - [ ] proj3 Collinear Points
 - [ ] proj4 8 Puzzle
 - [ ] proj5 Kd-Trees
@@ -31,5 +32,10 @@ Project 10 : Burrows-Wheeler
 - [ ] proj9 Boggle
 - [ ] proj10 Burrows Wheeler
 
-### project1 Percolation
-bonus得分 应该是限制只能使用一个unionfind
+
+### Bonus score
+project1 Percolation
+应该是限制只能使用一个unionfind?? 还没写
+
+project2 Queue
+use week1 knuth's random number algorithm and expand 1 to k
