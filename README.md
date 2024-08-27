@@ -1,5 +1,6 @@
 # PrincetonAlgorithm
 https://www.coursera.org/learn/algorithms-part1
+
 https://www.coursera.org/learn/algorithms-part2
 
 
@@ -7,12 +8,12 @@ https://www.coursera.org/learn/algorithms-part2
 - [x] proj0 Hello,world
 - [x] lecture1 union-find
 - [x] lecture2 algorithm analysis
-- [x] proj1 Percolation 
+- [x] proj1 Percolation   https://coursera.cs.princeton.edu/algs4/assignments/percolation/specification.php
 - [ ] proj1 Percolation bonus
 - [x] lecture3 bag, stack, queue
 - [x] lecture4 basic sort
 - [x] proj2 Deques and Randomized Queues https://coursera.cs.princeton.edu/algs4/assignments/queues/specification.php
-- [ ] proj3 Collinear Points
+- [ ] proj3 Collinear Points  https://coursera.cs.princeton.edu/algs4/assignments/collinear/specification.php
 - [ ] proj4 8 Puzzle
 - [ ] proj5 Kd-Trees
 Project 1: percolation
