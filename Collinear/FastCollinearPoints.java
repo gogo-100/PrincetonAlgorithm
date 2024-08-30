@@ -29,11 +29,10 @@ public class FastCollinearPoints {
         boolean checkFlag = false;
         Point[] cPoints = points.clone();
         //check duplicate line
-        //one used origin will never be found in an unknown line later
-        ArrayList<Point> usedPoint = new ArrayList<>();
+        ArrayList<Point[]> foundLine = new ArrayList<>();
         for (int i = 0; i < cPoints.length; i++) {
             Point origin = points[i];   //because clonePoints will change
-            //check check duplicate points (problem description say can't use hash)
+            //check duplicate points (problem description say can't use hash)
             Arrays.sort(cPoints, 0, cPoints.length, origin.slopeOrder());
             if (!checkFlag) {
                 for (int j = 0; j < points.length - 1; j++) {
@@ -50,29 +49,46 @@ public class FastCollinearPoints {
                     continue;
                 }
                 k = j + 3;
-                //find more points and check duplicate line segment
-                boolean hasDuplicate = false;
+                //find more points
                 for (; k < cPoints.length && origin.slopeTo(cPoints[j]) == origin
                         .slopeTo(cPoints[k]); k++){
-                    if(usedPoint.contains(cPoints[k])) hasDuplicate = true;
                 }
-                if(usedPoint.contains(cPoints[j+1])||usedPoint.contains(cPoints[j+2])) hasDuplicate = true;
-                if(!hasDuplicate){
-                    //consider origin and find two ends of line segment
-                    Arrays.sort(cPoints, j, k);
-                    if (origin.compareTo(cPoints[k - 1]) < 0
-                            && origin.compareTo(cPoints[j]) > 0)
-                        result.add(new LineSegment(cPoints[j],cPoints[k - 1]));
-                    else if (origin.compareTo(cPoints[k - 1]) > 0) result.add(new LineSegment(cPoints[j],origin));
-                    else result.add(new LineSegment(origin,cPoints[k - 1]));
-                    usedPoint.add(origin);
+                //consider origin and find two ends of line segment
+                //check duplicate line segment
+                Arrays.sort(cPoints, j, k);
+                Point[] line = new Point[2];
+                if (origin.compareTo(cPoints[k - 1]) < 0
+                            && origin.compareTo(cPoints[j]) > 0){
+                    line[0] = cPoints[j];
+                    line[1] = cPoints[k - 1];
                 }
+                else if (origin.compareTo(cPoints[k - 1]) > 0){
+                    line[0] = cPoints[j];
+                    line[1] = origin;
+                }
+                else {
+                    line[0] = origin;
+                    line[1] = cPoints[k - 1];
+                }
+                if(!duplicateLine(foundLine,line)){
+                    result.add(new LineSegment(line[0],line[1]));
+                    foundLine.add(line);
+                }
+
+
                 j = k;
             }
         }
 
     }
 
+    private boolean duplicateLine(ArrayList<Point[]> foundLine,Point[] line){
+        for (int i = 0; i < foundLine.size(); i++) {
+            if(foundLine.get(i)[0].compareTo(line[0]) == 0 && foundLine.get(i)[1].compareTo(line[1]) == 0)
+                return true;
+        }
+        return false;
+    }
 
     public int numberOfSegments() {
         return result.size();
@@ -86,7 +102,7 @@ public class FastCollinearPoints {
 
         // read the n points from a file
         //In in = new In(args[0]);
-        In in = new In("input80.txt");
+        In in = new In("grid4x4.txt");
         int n = in.readInt();
         Point[] points = new Point[n];
         for (int i = 0; i < n; i++) {
