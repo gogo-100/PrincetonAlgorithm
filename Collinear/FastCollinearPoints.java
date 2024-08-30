@@ -28,8 +28,6 @@ public class FastCollinearPoints {
         }
         boolean checkFlag = false;
         Point[] cPoints = points.clone();
-        //check duplicate line
-        ArrayList<Point[]> foundLine = new ArrayList<>();
         for (int i = 0; i < cPoints.length; i++) {
             Point origin = points[i];   //because clonePoints will change
             //check duplicate points (problem description say can't use hash)
@@ -51,44 +49,20 @@ public class FastCollinearPoints {
                 k = j + 3;
                 //find more points
                 for (; k < cPoints.length && origin.slopeTo(cPoints[j]) == origin
-                        .slopeTo(cPoints[k]); k++){
+                        .slopeTo(cPoints[k]); k++) {
                 }
                 //consider origin and find two ends of line segment
-                //check duplicate line segment
+                //check duplicate line segment: only the line segment start with origin will be added
                 Arrays.sort(cPoints, j, k);
                 Point[] line = new Point[2];
-                if (origin.compareTo(cPoints[k - 1]) < 0
-                            && origin.compareTo(cPoints[j]) > 0){
-                    line[0] = cPoints[j];
-                    line[1] = cPoints[k - 1];
-                }
-                else if (origin.compareTo(cPoints[k - 1]) > 0){
-                    line[0] = cPoints[j];
-                    line[1] = origin;
-                }
-                else {
-                    line[0] = origin;
-                    line[1] = cPoints[k - 1];
-                }
-                if(!duplicateLine(foundLine,line)){
-                    result.add(new LineSegment(line[0],line[1]));
-                    foundLine.add(line);
-                }
-
-
+                if (origin.compareTo(cPoints[j]) < 0)
+                    result.add(new LineSegment(origin, cPoints[k - 1]));
                 j = k;
             }
         }
 
     }
 
-    private boolean duplicateLine(ArrayList<Point[]> foundLine,Point[] line){
-        for (int i = 0; i < foundLine.size(); i++) {
-            if(foundLine.get(i)[0].compareTo(line[0]) == 0 && foundLine.get(i)[1].compareTo(line[1]) == 0)
-                return true;
-        }
-        return false;
-    }
 
     public int numberOfSegments() {
         return result.size();
